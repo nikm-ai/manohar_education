@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Manohar Education Consulting</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #0f0e0d;
+    --paper: #f7f4ef;
+    --cream: #ede9e1;
+    --accent: #c45c2e;
+    --accent-light: #e8d5c8;
+    --muted: #6b6560;
+    --rule: #d4cfc7;
+    --serif: 'DM Serif Display', Georgia, serif;
+    --sans: 'DM Sans', system-ui, sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(247,244,239,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 60px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    color: var(--ink);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links {
+    display: flex; gap: 2rem; list-style: none;
+  }
+  .nav-links a {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section { padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem); }
+  .container { max-width: 1080px; margin: 0 auto; }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 4rem;
+    padding-top: calc(60px + clamp(4rem, 8vw, 7rem));
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: clamp(1.5rem, 5vw, 4rem);
+    padding-right: clamp(1.5rem, 5vw, 4rem);
+  }
+
+  .hero-eyebrow {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1.2rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px; height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    max-width: 480px;
+  }
+
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .tag {
+    font-size: 0.78rem;
+    font-weight: 500;
+    padding: 0.3rem 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    background: var(--cream);
+    letter-spacing: 0.03em;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .btn:hover { background: #a84d25; transform: translateY(-1px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--accent);
+    border: 1.5px solid var(--accent);
+    margin-left: 1rem;
+  }
+  .btn-outline:hover { background: var(--accent); color: #fff; }
+
+  /* hero stats card */
+  .hero-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 2.5rem;
+    position: relative;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 4px; height: 100%;
+    background: var(--accent);
+  }
+  .hero-card-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.8rem;
+  }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 2rem; }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 2.2rem;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.2rem;
+  }
+  .stat-label {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+  .hero-card-subjects {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+  }
+  .subjects-list {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-top: 0.6rem;
+  }
+  .subject-chip {
+    font-size: 0.76rem;
+    padding: 0.2rem 0.6rem;
+    background: white;
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    border-radius: 1px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    height: 1px;
+    background: var(--rule);
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+
+  /* ── SECTION HEADER ── */
+  .section-header {
+    margin-bottom: 3.5rem;
+  }
+  .section-kicker {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .section-kicker::before {
+    content: ''; display: inline-block;
+    width: 20px; height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+  }
+  .section-sub {
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 560px;
+  }
+
+  /* ── EDUCATION CONSULTING ── */
+  #consulting { background: var(--ink); color: var(--paper); }
+  #consulting .section-kicker { color: var(--accent-light); }
+  #consulting .section-kicker::before { background: var(--accent-light); }
+  #consulting .section-title { color: var(--paper); }
+  #consulting .section-sub { color: #a09a93; }
+
+  .subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: #2a2520;
+    border: 1px solid #2a2520;
+    margin-bottom: 3rem;
+  }
+  .subject-card {
+    background: #1a1714;
+    padding: 2rem 1.8rem;
+    transition: background 0.2s;
+  }
+  .subject-card:hover { background: #221f1b; }
+  .subject-icon {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  .subject-name {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    color: var(--paper);
+    margin-bottom: 0.6rem;
+  }
+  .subject-detail {
+    font-size: 0.82rem;
+    color: #7a746d;
+    line-height: 1.6;
+    margin-bottom: 0.8rem;
+  }
+  .subject-chips {
+    display: flex; flex-wrap: wrap; gap: 0.35rem;
+  }
+  .subject-chip-dark {
+    font-size: 0.72rem;
+    padding: 0.18rem 0.55rem;
+    background: #2e2a26;
+    border: 1px solid #3d3830;
+    color: #a09a93;
+    border-radius: 1px;
+  }
+
+  .who-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .who-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.5rem;
+    border: 1px solid #2a2520;
+    background: #1a1714;
+  }
+  .who-bullet {
+    flex-shrink: 0;
+    width: 28px; height: 28px;
+    background: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #fff;
+    margin-top: 2px;
+  }
+  .who-text {
+    font-size: 0.92rem;
+    color: #c8c2bb;
+    line-height: 1.55;
+  }
+
+  /* ── APPROACH ── */
+  #approach { background: var(--cream); }
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+  .approach-card {
+    padding: 2rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .approach-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s;
+  }
+  .approach-card:hover::after { transform: scaleX(1); }
+  .approach-num {
+    font-family: var(--serif);
+    font-size: 3rem;
+    color: var(--accent-light);
+    line-height: 1;
+    margin-bottom: 0.8rem;
+  }
+  .approach-title {
+    font-family: var(--serif);
+    font-size: 1.2rem;
+    margin-bottom: 0.6rem;
+  }
+  .approach-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* process steps */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid var(--rule);
+    background: var(--rule);
+    gap: 1px;
+  }
+  .process-step {
+    background: var(--paper);
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+  }
+  .step-num {
+    font-family: var(--serif);
+    font-size: 1.8rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+  .step-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+  .step-desc {
+    font-size: 0.78rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  /* ── PROJECTS ── */
+  #projects .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .project-card {
+    border: 1px solid var(--rule);
+    padding: 2rem;
+    position: relative;
+    background: var(--paper);
+    transition: border-color 0.2s;
+  }
+  .project-card:hover { border-color: var(--accent); }
+  .project-type {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+  }
+  .project-title {
+    font-family: var(--serif);
+    font-size: 1.25rem;
+    margin-bottom: 0.6rem;
+    line-height: 1.25;
+  }
+  .project-desc {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* ── PRICING ── */
+  #pricing { background: var(--cream); }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .price-card {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 2.2rem;
+  }
+  .price-card.featured {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .price-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .price-card.featured .price-label { color: var(--accent-light); }
+  .price-name {
+    font-family: var(--serif);
+    font-size: 1.6rem;
+    margin-bottom: 0.4rem;
+  }
+  .price-duration {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--rule);
+  }
+  .price-card.featured .price-duration { color: #a09a93; border-color: #2a2520; }
+  .price-features {
+    list-style: none;
+    margin-bottom: 1.8rem;
+  }
+  .price-features li {
+    font-size: 0.88rem;
+    padding: 0.4rem 0;
+    color: var(--muted);
+    display: flex; gap: 0.6rem; align-items: baseline;
+  }
+  .price-card.featured .price-features li { color: #a09a93; }
+  .price-features li::before {
+    content: '→';
+    color: var(--accent);
+    font-size: 0.75rem;
+    flex-shrink: 0;
+  }
+  .price-note {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    margin-top: -0.5rem;
+    margin-bottom: 1.8rem;
+  }
+  .price-card.featured .price-note { color: #7a746d; }
+  .btn-dark {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--ink);
+    color: var(--paper);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: background 0.2s;
+    width: 100%; text-align: center;
+  }
+  .btn-dark:hover { background: #2a2520; }
+  .btn-light {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s;
+    width: 100%; text-align: center;
+    border: none; cursor: pointer;
+  }
+  .btn-light:hover { background: #a84d25; }
+
+  /* ── ABOUT ── */
+  #about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: start;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+  }
+  .about-body {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .about-credentials {
+    display: flex; flex-direction: column; gap: 1rem;
+    margin-top: 2rem;
+  }
+  .cred-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1rem 1.2rem;
+    background: var(--cream);
+    border-left: 3px solid var(--accent);
+  }
+  .cred-icon { font-size: 1.1rem; flex-shrink: 0; }
+  .cred-text { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+  .cred-text strong { color: var(--ink); font-weight: 600; }
+
+  /* ── FAQ ── */
+  #faq { background: var(--cream); }
+  .faq-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .faq-item {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    padding: 1.8rem;
+  }
+  .faq-q {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    margin-bottom: 0.6rem;
+    color: var(--ink);
+  }
+  .faq-a {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink);
+    color: var(--paper);
+    text-align: center;
+  }
+  #contact .section-kicker { color: var(--accent-light); justify-content: center; }
+  #contact .section-kicker::before { background: var(--accent-light); }
+  #contact .section-title { color: var(--paper); }
+  #contact .section-sub { color: #a09a93; margin: 0 auto 2.5rem; }
+
+  .contact-options {
+    display: flex; justify-content: center; gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+  }
+  .contact-card {
+    background: #1a1714;
+    border: 1px solid #2a2520;
+    padding: 1.2rem 2rem;
+    display: flex; align-items: center; gap: 0.75rem;
+    text-decoration: none;
+    color: var(--paper);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-card:hover { border-color: var(--accent); background: #221f1b; }
+  .contact-card-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #7a746d;
+    margin-bottom: 0.1rem;
+  }
+  .contact-card-value {
+    font-size: 0.9rem;
+    color: var(--paper);
+  }
+  .contact-icon { font-size: 1.3rem; }
+
+  .contact-footer {
+    padding-top: 2rem;
+    border-top: 1px solid #2a2520;
+    font-size: 0.78rem;
+    color: #4a4540;
+    letter-spacing: 0.04em;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #0a0908;
+    padding: 1.5rem clamp(1.5rem, 5vw, 4rem);
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid #1a1714;
+  }
+  footer p { font-size: 0.78rem; color: #4a4540; }
+  footer a { color: #6b6560; text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-up { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .delay-1 { animation-delay: 0.1s; }
+  .delay-2 { animation-delay: 0.22s; }
+  .delay-3 { animation-delay: 0.34s; }
+  .delay-4 { animation-delay: 0.46s; }
+  .delay-5 { animation-delay: 0.58s; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    #home { grid-template-columns: 1fr; gap: 2.5rem; min-height: auto; }
+    .subjects-grid { grid-template-columns: 1fr; }
+    .who-grid { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    #projects .projects-grid { grid-template-columns: 1fr; }
+    .pricing-grid { grid-template-columns: 1fr; }
+    #about { grid-template-columns: 1fr; gap: 2.5rem; }
+    .faq-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+    .stats-grid { grid-template-columns: 1fr 1fr; }
+    .btn-outline { margin-left: 0; margin-top: 0.75rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">Manohar <span>Education</span></a>
+  <ul class="nav-links">
+    <li><a href="#consulting">Consulting</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <p class="hero-eyebrow fade-up">U.S.-Based &nbsp;·&nbsp; Remote-First</p>
+    <h1 class="hero-title fade-up delay-1">
+      Data-driven education<br>that meets you <em>where you are.</em>
+    </h1>
+    <p class="hero-sub fade-up delay-2">
+      Expert instruction in GMAT, SAT, Math, Economics, Statistics, Reading & English. Remote-first with flexible scheduling and clear communication.
+    </p>
+    <div class="hero-tags fade-up delay-3">
+      <span class="tag">Remote · U.S. & International</span>
+      <span class="tag">Evenings & Weekends</span>
+      <span class="tag">Adaptive Lesson Plans</span>
+    </div>
+    <div class="fade-up delay-4">
+      <a href="#contact" class="btn">Book a Free Consult</a>
+      <a href="#consulting" class="btn btn-outline">What I Teach</a>
+    </div>
+  </div>
+
+  <div class="hero-card fade-up delay-3">
+    <p class="hero-card-label">By the numbers</p>
+    <div class="stats-grid">
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Students & small groups supported</div>
+      </div>
+      <div>
+        <div class="stat-num">3</div>
+        <div class="stat-label">Years of tailored instruction</div>
+      </div>
+      <div>
+        <div class="stat-num">100s</div>
+        <div class="stat-label">Hours of focused teaching</div>
+      </div>
+      <div>
+        <div class="stat-num">∞</div>
+        <div class="stat-label">Global time zones served</div>
+      </div>
+    </div>
+    <div class="hero-card-subjects">
+      <p class="stat-label" style="margin-bottom:0.5rem;">Subjects covered</p>
+      <div class="subjects-list">
+        <span class="subject-chip">GMAT</span>
+        <span class="subject-chip">SAT</span>
+        <span class="subject-chip">Calculus</span>
+        <span class="subject-chip">Statistics</span>
+        <span class="subject-chip">Economics</span>
+        <span class="subject-chip">Reading</span>
+        <span class="subject-chip">English</span>
+        <span class="subject-chip">Algebra</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONSULTING -->
+<section id="consulting">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-kicker">Education Consulting</p>
+      <h2 class="section-title">Focused, confidence-building<br>instruction across tests and subjects.</h2>
+      <p class="section-sub">Every session is built around your specific gaps, timeline, and goals — not a generic curriculum.</p>
+    </div>
+
+    <div class="subjects-grid">
+      <div class="subject-card">
+        <div class="subject-icon">📐</div>
+        <h3 class="subject-name">Test Prep</h3>
+        <p class="subject-detail">GMAT · SAT (Math & Verbal) · Placement exams. Strategy-first approach that builds lasting skill.</p>
+        <div class="subject-chips">
+          <span class="subject-chip-dark">Quant reasoning</span>
+          <span class="subject-chip-dark">Data sufficiency</span>
+          <span class="subject-chip-dark">Reading strategy</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon">∑</div>
+        <h3 class="subject-name">Math & Quant</h3>
+        <p class="subject-detail">Algebra · Geometry · Pre-Calc · Calculus · Statistics (AP/college). Concept mastery over rote memorization.</p>
+        <div class="subject-chips">
+          <span class="subject-chip-dark">Concept mastery</span>
+          <span class="subject-chip-dark">Error analysis</span>
+          <span class="subject-chip-dark">Pacing</span>
+        </div>
+      </div>
+      <div class="subject-card">
+        <div class="subject-icon">📖</div>
+        <h3 class="subject-name">Reading & English</h3>
+        <p class="subject-detail">Close reading · Passage mapping · Academic writing · Grammar & style. Clear, structured, and effective.</p>
+        <div class="subject-chips">
+          <span class="subject-chip-dark">Comprehension</span>
+          <span class="subject-chip-dark">Academic writing</span>
+          <span class="subject-chip-dark">Grammar & style</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="height: 3rem;"></div>
+
+    <div class="section-header">
+      <p class="section-kicker">Who I Help</p>
+      <h2 class="section-title" style="font-size: 1.8rem;">Built for learners at every stage.</h2>
+    </div>
+    <div class="who-grid">
+      <div class="who-item">
+        <div class="who-bullet">1</div>
+        <p class="who-text">High school students aiming for competitive SAT scores</p>
+      </div>
+      <div class="who-item">
+        <div class="who-bullet">2</div>
+        <p class="who-text">College students mastering stats and economics courses</p>
+      </div>
+      <div class="who-item">
+        <div class="who-bullet">3</div>
+        <p class="who-text">Professionals targeting a quant jump for GMAT or analytics upskilling</p>
+      </div>
+      <div class="who-item">
+        <div class="who-bullet">4</div>
+        <p class="who-text">International learners seeking clear, supportive English instruction</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section id="approach">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-kicker">My Approach</p>
+      <h2 class="section-title">What sets this apart.</h2>
+      <p class="section-sub">Not just content delivery. A system that adapts to how you actually learn.</p>
+    </div>
+
+    <div class="approach-grid">
+      <div class="approach-card">
+        <div class="approach-num">01</div>
+        <h3 class="approach-title">Adaptive & Transparent</h3>
+        <p class="approach-desc">Lightweight trackers surface error patterns (careless vs. concept vs. pacing) so we adjust fast — and you see the progress in real time.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">02</div>
+        <h3 class="approach-title">Strategy + Fundamentals</h3>
+        <p class="approach-desc">Shortcuts only work on a base of understanding. We build both so you know why answers are right, not just which answer to pick.</p>
+      </div>
+      <div class="approach-card">
+        <div class="approach-num">03</div>
+        <h3 class="approach-title">Calm Test Mindset</h3>
+        <p class="approach-desc">Pacing, triage, and stress strategies are built into timed sets from day one — not tacked on at the end when it's too late.</p>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-top: 3rem;">
+      <p class="section-kicker">How It Works</p>
+      <h2 class="section-title" style="font-size: 1.8rem;">Five steps from start to results.</h2>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">1</div>
+        <div class="step-title">Diagnostic</div>
+        <div class="step-desc">Map strengths, gaps, and targets. Free session.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">2</div>
+        <div class="step-title">Plan</div>
+        <div class="step-desc">Weekly lesson roadmap and practice cadence.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">3</div>
+        <div class="step-title">Teach</div>
+        <div class="step-desc">Concept → drills → timed sets → review.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">4</div>
+        <div class="step-title">Track</div>
+        <div class="step-desc">Accuracy, pacing, error type analysis.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">5</div>
+        <div class="step-title">Results</div>
+        <div class="step-desc">Self-study playbook for sustained momentum.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-kicker">Projects</p>
+      <h2 class="section-title">Analytics in the classroom.</h2>
+      <p class="section-sub">The same data-driven rigor behind enterprise decisions, applied to individual learning.</p>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card">
+        <p class="project-type">Student Analytics</p>
+        <h3 class="project-title">Adaptive Error Tracking System</h3>
+        <p class="project-desc">Lightweight spreadsheet-based trackers that categorize mistakes by type (careless, conceptual, pacing) and surface trends over time — giving students and parents a clear view of progress and next priorities.</p>
+      </div>
+      <div class="project-card">
+        <p class="project-type">Curriculum Design</p>
+        <h3 class="project-title">GMAT Quant Concept Library</h3>
+        <p class="project-desc">A structured library of problem-type walkthroughs covering Data Sufficiency, Problem Solving, and quantitative reasoning patterns — built from hundreds of hours of real student sessions.</p>
+      </div>
+      <div class="project-card">
+        <p class="project-type">Test Strategy</p>
+        <h3 class="project-title">SAT Pacing & Triage Framework</h3>
+        <p class="project-desc">A repeatable decision framework for navigating SAT Math and Verbal sections under time pressure — built into practice from the first session, not just before test day.</p>
+      </div>
+      <div class="project-card">
+        <p class="project-type">Professional Background</p>
+        <h3 class="project-title">Data Science & Analytics</h3>
+        <p class="project-desc">A background spanning quantitative finance, applied economic research, consumer tech, and independent data consulting. The analytical rigor from those fields translates directly into how lessons are structured, tracked, and measured.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-kicker">Packages & Pricing</p>
+      <h2 class="section-title">Simple, transparent options.</h2>
+      <p class="section-sub">Most students succeed with a focused 6 to 10 week plan. Every engagement starts with a free diagnostic.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <p class="price-label">Single Session</p>
+        <h3 class="price-name">Starter</h3>
+        <p class="price-duration">90 minutes · One-time</p>
+        <ul class="price-features">
+          <li>Full diagnostic assessment</li>
+          <li>Custom lesson plan</li>
+          <li>First full instruction session</li>
+          <li>Progress tracking setup</li>
+        </ul>
+        <a href="#contact" class="btn-dark">Get Started</a>
+      </div>
+      <div class="price-card featured">
+        <p class="price-label">Most Popular</p>
+        <h3 class="price-name">Weekly Coaching</h3>
+        <p class="price-duration">60–90 min/week · Ongoing</p>
+        <ul class="price-features">
+          <li>Ongoing instruction</li>
+          <li>Homework review each session</li>
+          <li>Weekly progress tracking</li>
+          <li>Error pattern analysis</li>
+          <li>Flexible scheduling</li>
+        </ul>
+        <a href="#contact" class="btn-light">Book a Consult</a>
+      </div>
+      <div class="price-card">
+        <p class="price-label">Intensive / Group</p>
+        <h3 class="price-name">Intensives</h3>
+        <p class="price-duration">2–3×/week · Near-term dates</p>
+        <ul class="price-features">
+          <li>Accelerated prep schedule</li>
+          <li>Small groups of 2 to 4 students</li>
+          <li>Cost-effective collaboration</li>
+          <li>Custom packages for families</li>
+        </ul>
+        <p class="price-note">Request current rates and a sample plan.</p>
+        <a href="#contact" class="btn-dark">Request Rates</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<div id="about">
+  <div>
+    <p class="section-kicker">About</p>
+    <h2 class="section-title">Your Instructor</h2>
+    <p class="about-body" style="margin-top: 1.2rem;">
+      An instructor and analytics professional with extensive experience across data science, finance, consulting, and academic instruction. Background includes building predictive models, supporting high-stakes quantitative decisions, and designing efficient reporting systems.
+    </p>
+    <p class="about-body">
+      Those same skills — structured thinking, pattern recognition, and clear communication — inform every tutoring session. Learning becomes efficient when it's measured and adapted, not just repeated.
+    </p>
+    <a href="#contact" class="btn">Work With Me</a>
+  </div>
+  <div>
+    <div class="about-credentials">
+      <div class="cred-item">
+        <div class="cred-icon">🎓</div>
+        <div class="cred-text"><strong>Economics & Quantitative Methods</strong><br>Undergraduate degrees in Economics and Government & Politics</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">📊</div>
+        <div class="cred-text"><strong>Finance & Risk Analytics</strong><br>Quantitative modeling and portfolio risk in institutional investment settings</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">🏛️</div>
+        <div class="cred-text"><strong>Economic Research</strong><br>National accounts and applied economic data analysis in a federal context</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">💡</div>
+        <div class="cred-text"><strong>Independent Consulting</strong><br>Multiple clients across data science, analytics, and reporting automation</div>
+      </div>
+      <div class="cred-item">
+        <div class="cred-icon">📍</div>
+        <div class="cred-text"><strong>Remote-First · U.S.-Based</strong><br>Evenings & weekends · U.S. and international clients</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-kicker">FAQs</p>
+      <h2 class="section-title">Common questions.</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <h3 class="faq-q">Do you teach fully remote?</h3>
+        <p class="faq-a">Yes — all sessions are conducted via video call. I work with students across the U.S. and internationally, with scheduling built around evenings and weekends to accommodate different time zones.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">How quickly can we start?</h3>
+        <p class="faq-a">Typically within a few days of our initial consult. The first session is a diagnostic and goal-setting call, so there's no prep required on your end before we meet.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Do you assign homework?</h3>
+        <p class="faq-a">Yes — practice between sessions is essential. Assignments are targeted and specific: usually a short problem set or timed drill tied directly to what we covered. Quality over quantity.</p>
+      </div>
+      <div class="faq-item">
+        <h3 class="faq-q">Can you coordinate with a teacher or parent?</h3>
+        <p class="faq-a">Absolutely. I'm happy to align with classroom teachers on curriculum pacing or share progress reports with parents. Clear communication is part of the process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <div class="section-header" style="text-align: center;">
+      <p class="section-kicker" style="justify-content: center;">Contact</p>
+      <h2 class="section-title">Let's get you a plan.</h2>
+      <p class="section-sub">Free 15-minute consult: share your goals, timeline, and past scores or syllabi. I'll outline a plan, cadence, and a clear path to results.</p>
+    </div>
+    <div class="contact-options">
+      <a href="mailto:hello@manohareducation.qzz.io" class="contact-card">
+        <span class="contact-icon">✉️</span>
+        <div>
+          <div class="contact-card-label">Email</div>
+          <div class="contact-card-value">hello@manohareducation.qzz.io</div>
+        </div>
+      </a>
+      <a href="#" class="contact-card">
+        <span class="contact-icon">🔗</span>
+        <div>
+          <div class="contact-card-label">LinkedIn</div>
+          <div class="contact-card-value">Connect on LinkedIn</div>
+        </div>
+      </a>
+    </div>
+    <div class="contact-footer">
+      Remote-First &nbsp;·&nbsp; U.S. & International Clients
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Manohar Education Consulting. All rights reserved.</p>
+  <p><a href="mailto:hello@manohareducation.qzz.io">hello@manohareducation.qzz.io</a></p>
+</footer>
+
+</body>
+</html>
